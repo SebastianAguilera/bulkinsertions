@@ -1,7 +1,7 @@
 import unittest
 from flask import current_app
 from app import create_app
-from app.models import Facultad
+from app.models import Grado
 
 class CargoTestCase(unittest.TestCase):
 
@@ -16,14 +16,13 @@ class CargoTestCase(unittest.TestCase):
     def test_app(self):
         self.assertIsNotNone(current_app)
   
-    def test_facultad(self):
-        facultad = Facultad()
-        facultad.nombre = 'facultad'
+    def test_grado(self):
+        grado = Grado()
+        grado.nombre = 'grado'
 
-        self.assertIsNotNone(facultad)
-        self.assertEqual(facultad.nombre, 'facultad')
+        self.assertIsNotNone(grado)
+        self.assertEqual(grado.nombre, 'grado')
 
 if __name__ == '__main__':
     unittest.main()
-
 
