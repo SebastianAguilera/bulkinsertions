@@ -22,5 +22,5 @@ class PlanService:
             nombre = item.find('nombre').text.strip()
             datos.append({'id': grado_id, 'nombre': nombre})
 
-        GradoRepository.insertar_masivo(datos)
+        PlanRepository.insertar_masivo(datos)
     
