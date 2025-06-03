@@ -1,3 +1,5 @@
 from .plan_repository import PlanRepository
 from .grado_repository import GradoRepository
 from .facultad_repository import FacultadRepository
+from .universidad_repository import UniversidadRepository
+from .especialidad_repository import EspecialidadRepository

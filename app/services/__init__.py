@@ -1,3 +1,5 @@
 from .plan_service import PlanService
 from .grado_service import GradoService
 from .facultad_service import FacultadService
+from .universidad_service import UniversidadService
+from .especialidad_service import EspecialidadService
