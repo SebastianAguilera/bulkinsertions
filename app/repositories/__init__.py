@@ -1,2 +1,3 @@
 from .plan_repository import PlanRepository
 from .grado_repository import GradoRepository
+from .facultad_repository import FacultadRepository
