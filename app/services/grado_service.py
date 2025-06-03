@@ -1,19 +1,19 @@
-from app.models import Plan
-from app.repositories import PlanRepository
+from app.models import Grado
+from app.repositories import GradoRepository
+import xml.etree.ElementTree as ET
 import os
 
-ruta = os.path.join('archivados_xml', 'planes.xml')
 
-class PlanService:
-
-    @staticmethod
-    def crear_plan(plan: Plan):
-        PlanRepository.crear_plan(plan)
-        return plan
+class GradoService:
 
     @staticmethod
-    def importar_desde_xml(ruta_archivo: str):
-        tree = ET.parse(ruta_archivo)
+    def crear_grado(grado: Grado):
+        GradoRepository.crear_grado(grado)
+        return grado
+    
+    @staticmethod
+    def insertar_masivo(ruta: str):
+        tree = ET.parse(ruta)
         root = tree.getroot()
 
         datos = []
@@ -23,4 +23,5 @@ class PlanService:
             datos.append({'id': grado_id, 'nombre': nombre})
 
         GradoRepository.insertar_masivo(datos)
+
     
