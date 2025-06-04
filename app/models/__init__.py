@@ -2,6 +2,9 @@ from .grado import Grado
 from .facultad import Facultad
 from .pais import Pais
 from .materia import Materia
+from .plan import Plan
 from .localidad import Localidad
 from .orientaciones import Orientaciones
 
+from .universidad import Universidad
+from .especialidad import Especialidad
