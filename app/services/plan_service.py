@@ -25,3 +25,4 @@ class PlanService:
             datos.append({'plan': plan, 'nombre': nombre})
 
         PlanRepository.insertar_masivo(datos)
+    
