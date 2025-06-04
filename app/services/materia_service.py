@@ -35,6 +35,6 @@ class MateriaService:
                     'especialidad_id': int(especialidad_id)
                 })
             except Exception:
-                continue  # Salta ítems con errores sin mostrar nada
+                continue  
 
         MateriaRepository.insertar_masivo(datos)
