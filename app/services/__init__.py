@@ -4,3 +4,5 @@ from .facultad_service import FacultadService
 from .universidad_service import UniversidadService
 from .especialidad_service import EspecialidadService
 from .orientacion_service import OrientacionService 
+from .materia_service import MateriaService
+from .localidad_service import LocalidadService

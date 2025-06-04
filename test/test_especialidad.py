@@ -42,7 +42,8 @@ class AppTestCase(unittest.TestCase):
         EspecialidadService.insertar_masivo(ruta)
 
         total_en_db = db.session.query(Especialidad).count()
-        print(f"[DB] Se insertaron {total_en_db} registros en la tabla especialidad.")
+        print(f"[DB] Se insertaron {total_en_db} registros en la tabla especialidades.")
+
 
         self.assertEqual(total_en_xml, total_en_db)
         

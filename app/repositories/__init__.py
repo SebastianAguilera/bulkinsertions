@@ -4,3 +4,6 @@ from .facultad_repository import FacultadRepository
 from .universidad_repository import UniversidadRepository
 from .especialidad_repository import EspecialidadRepository
 from .orientacion_repository import OrientacionRepository
+from .materia_repository import MateriaRepository
+from .localidad_repository import LocalidadRepository
+
