@@ -5,3 +5,5 @@ from .universidad_service import UniversidadService
 from .especialidad_service import EspecialidadService
 from .pais_service import PaisService
 
+from .materia_service import MateriaService
+from .localidad_service import LocalidadService

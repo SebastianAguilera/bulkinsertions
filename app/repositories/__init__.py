@@ -4,3 +4,6 @@ from .grado_repository import GradoRepository
 from .universidad_repository import UniversidadRepository
 from .especialidad_repository import EspecialidadRepository
 from .pais_repository import PaisRepository
+from .materia_repository import MateriaRepository
+from .localidad_repository import LocalidadRepository
+
