@@ -3,3 +3,4 @@ from .grado_repository import GradoRepository
 from .facultad_repository import FacultadRepository
 from .universidad_repository import UniversidadRepository
 from .especialidad_repository import EspecialidadRepository
+from .orientacion_repository import OrientacionRepository

@@ -36,19 +36,14 @@ class CargoTestCase(unittest.TestCase):
 
     def test_insertar_masivo(self):
         ruta = os.path.join("archivados_xml", "grados.xml")
-
         import xml.etree.ElementTree as ET
         tree = ET.parse(ruta)
         root = tree.getroot()
         total_en_xml = len(root.findall('_expxml'))
         print(f"[XML] Se detectaron {total_en_xml} grados en el archivo.")
-
-
         GradoService.insertar_masivo(ruta)
-
         total_en_db = db.session.query(Grado).count()
         print(f"[DB] Se insertaron {total_en_db} registros en la tabla grado.")
-
         self.assertEqual(total_en_xml, total_en_db)
 
     def __crear_grado(self):

@@ -3,3 +3,4 @@ from .grado_service import GradoService
 from .facultad_service import FacultadService
 from .universidad_service import UniversidadService
 from .especialidad_service import EspecialidadService
+from .orientacion_service import OrientacionService 

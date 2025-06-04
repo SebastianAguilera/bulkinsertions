@@ -1,4 +1,4 @@
-from app.models import especialidad
+from app.models import Especialidad
 from app.repositories import EspecialidadRepository
 
 class EspecialidadService:

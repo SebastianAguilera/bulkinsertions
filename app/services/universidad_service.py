@@ -1,4 +1,4 @@
-from app.models import universidad
+from app.models import Universidad
 from app.repositories import UniversidadRepository
 
 class UniversidadService:

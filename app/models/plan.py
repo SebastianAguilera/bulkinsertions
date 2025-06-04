@@ -5,5 +5,6 @@ from app import db
 class Plan(db.Model):
     _tablename_='planes'
     id : int = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nombre: str = db.Column(db.String(100), nullable=False)
-    especialidad: str = db.Column(db.String(100), nullable=False)
+    plan: int = db.Column(db.Integer)
+    nombre: str = db.Column(db.String(100))
+    
