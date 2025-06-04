@@ -8,3 +8,6 @@ class PaisRepository:
         db.session.commit()
         return pais
     
+    def insertar_masivo(datos: list[dict]):
+        db.session.bulk_insert_mappings(Pais, datos)
+        db.session.commit()
