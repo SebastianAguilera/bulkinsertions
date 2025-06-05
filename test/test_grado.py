@@ -6,7 +6,7 @@ from app.services import GradoService
 from app import db
 import os
 
-class CargoTestCase(unittest.TestCase):
+class GradoTestCase(unittest.TestCase):
 
     def setUp(self):
         self.app = create_app()

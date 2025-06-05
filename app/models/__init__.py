@@ -6,3 +6,5 @@ from .localidad import Localidad
 from .orientacion import Orientacion
 from .universidad import Universidad
 from .especialidad import Especialidad
+from .pais import Pais
+

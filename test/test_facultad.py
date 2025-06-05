@@ -5,6 +5,7 @@ from app.models import Facultad
 from app.services import FacultadService
 from app import db
 import os
+from app import db
 
 class CargoTestCase(unittest.TestCase):
 
