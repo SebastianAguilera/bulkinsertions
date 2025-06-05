@@ -12,29 +12,16 @@ class MateriaService:
 
     @staticmethod
     def insertar_masivo(ruta: str):
-        tree = ET.parse(ruta)
-        root = tree.getroot()
+      tree = ET.parse(ruta)
+      root = tree.getroot()
 
-        datos = []
-        for item in root.findall('_expxml'):
-            try:
-                materia_id = item.findtext('id')
-                nombre = item.findtext('nombre')
-                plan = item.findtext('plan')
-                ano = item.findtext('ano')
-                especialidad_id = item.findtext('especialidad_id')
+      datos = []
+      for item in root.findall('_expxml'):
+          materia_id = int(item.find('materia').text)
+          nombre = item.find('nombre').text.strip()
+          ano = item.find('ano').text 
+          especialidad = int(item.find('especialidad').text)
 
-                if None in (materia_id, nombre, plan, ano, especialidad_id):
-                    continue  # Salta ítems con campos faltantes
+          datos.append({'id': materia_id, 'nombre': nombre, 'ano': ano, 'especialidad_id': especialidad})
 
-                datos.append({
-                    'id': int(materia_id),
-                    'nombre': nombre.strip(),
-                    'plan': int(plan),
-                    'ano': int(ano),
-                    'especialidad_id': int(especialidad_id)
-                })
-            except Exception:
-                continue  
-
-        MateriaRepository.insertar_masivo(datos)
+      MateriaRepository.insertar_masivo(datos)
