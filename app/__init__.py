@@ -21,10 +21,12 @@ def create_app() -> Flask:
     
     db.init_app(app)
     migrate.init_app(app, db)
+    
 
     @app.shell_context_processor    
     def ctx():
         return {"app": app}
     
     return app
+
 

@@ -1,5 +1,6 @@
 from app.models import Plan
 from app import db
+from sqlalchemy.exc import IntegrityError
 
 class PlanRepository:
 
@@ -9,6 +10,16 @@ class PlanRepository:
         db.session.commit()
         return plan
     @staticmethod
-    def insertar_masivo(datos: list[dict]):
-        db.session.bulk_insert_mappings(Plan, datos)
-        db.session.commit()
+    def insertar_masivo(datos):
+        for dato in datos:
+            existente = db.session.query(Plan).filter_by(id=dato['id']).first()
+            if existente:
+                continue
+
+            plan = Plan(**dato)
+            db.session.add(plan)
+        
+        try:
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()

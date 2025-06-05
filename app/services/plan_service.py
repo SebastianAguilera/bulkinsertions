@@ -23,10 +23,9 @@ class PlanService:
 
         datos = []
         for item in root.findall('_expxml'):
-            materia = int(item.find('materia').text)
+            plan_id = item.find('plan').text.strip()
             nombre = item.find('nombre').text.strip()
-            ano = int(item.find('ano').text)
-            datos.append({'id': materia, 'nombre': nombre, 'ano': ano})
+            datos.append({'id': plan_id, 'nombre': nombre})
 
         PlanRepository.insertar_masivo(datos)
     

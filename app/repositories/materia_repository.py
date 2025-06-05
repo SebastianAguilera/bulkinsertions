@@ -9,22 +9,24 @@ class MateriaRepository:
         db.session.add(materia)
         db.session.commit()
         return materia
+    from sqlalchemy.exc import IntegrityError
 
     @staticmethod
-    def insertar_masivo(materias_raw):
+    def insertar_masivo(datos):
+        for dato in datos:
+            try:
+                dato['ano'] = int(dato['ano'])
+            except (ValueError, TypeError):
+                dato['ano'] = None  
+
+            existente = db.session.query(Materia).filter_by(id=dato['id']).first()
+            if existente:
+                continue
+
+            materia = Materia(**dato)
+            db.session.add(materia)
         
-      nombres_existentes = {
-          nombre for (nombre,) in db.session.query(Materia.nombre).all()
-          }
-
-      materias_filtradas = [
-          m for m in materias_raw if m['nombre'] not in nombres_existentes
-      ]
-
-      try:
-          db.session.bulk_insert_mappings(Materia, materias_filtradas)
-          db.session.commit()
-          print(f"Se insertaron {len(materias_filtradas)} materias.")
-      except Exception as e:
-          db.session.rollback()
-          print(f"Error en la inserción masiva: {e}")
+        try:
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()

@@ -7,7 +7,7 @@ class Orientacion(db.Model):
     id : int = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nombre: str = db.Column(db.String(100), nullable=False)
     ##
-    especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidades.id'), nullable=False)
+    especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidades.id'))
     especialidad = db.relationship('Especialidad')
-    plan_id = db.Column(db.Integer, db.ForeignKey('planes.id'), nullable=False)
+    plan_id = db.Column(db.Integer, db.ForeignKey('planes.id'))
     plan = db.relationship('Plan')
